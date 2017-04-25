@@ -20,9 +20,7 @@ class Hero:
             return False
     def attack(enemy):
             goblin_health -= hero_power
-            print("You do {} damage to the goblin.".format(hero_power))
-            if goblin_health <= 0:
-                print("The goblin is dead.")
+
         elif inpt == "2":
             pass
         elif inpt == "3":
@@ -30,13 +28,24 @@ class Hero:
             break
         else:
             print("Invalid inpt {}".format(inpt))
+    def print_status():
+        print("The goblin does {} damage to you.".format(goblin_power))
+        if hero_health <= 0:
+            print("You are dead.")
+
 
 
 hero_stats = Hero(10, 5)
 
 class Goblin(Hero):
     pass
+    def attack(enemy):
+        hero_health -= goblin_power
 
+    def print_status():
+        print("You do {} damage to the goblin.".format(hero_power))
+        if goblin_health <= 0:
+            print("The goblin is dead.")
 goblin_stats = Goblin(6,2)
 
 
@@ -72,10 +81,7 @@ goblin_stats = Goblin(6,2)
 
         if goblin_health > 0:
             # Goblin attacks hero
-            hero_health -= goblin_power
-            print("The goblin does {} damage to you.".format(goblin_power))
-            if hero_health <= 0:
-                print("You are dead.")
+
 
 if __name__ == "__main__":
   main()
